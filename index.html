@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Beats - Spotify Mood-Based Recommender</title>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<!-- Set dark-mode as the default class -->
+<body class="dark-mode">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-headphones-alt" aria-hidden="true"></i>
+                <h1>Mood Beats</h1>
+            </div>
+            <div class="theme-toggle">
+                <!-- Icon will be updated by JS based on theme -->
+                <i class="fas fa-sun" id="theme-toggle-icon" aria-label="Switch to light mode" role="button" tabindex="0"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="mood-selector" aria-labelledby="mood-heading">
+            <h2 id="mood-heading">How are you feeling today?</h2>
+            <div class="mood-buttons">
+                <button class="mood-btn" data-mood="happy" aria-label="Select happy mood">
+                    <i class="fas fa-smile" aria-hidden="true"></i>
+                    <span>Happy</span>
+                </button>
+                <button class="mood-btn" data-mood="chill" aria-label="Select chill mood">
+                    <i class="fas fa-cloud" aria-hidden="true"></i>
+                    <span>Chill</span>
+                </button>
+                <button class="mood-btn" data-mood="focus" aria-label="Select focus mood">
+                    <i class="fas fa-brain" aria-hidden="true"></i>
+                    <span>Focus</span>
+                </button>
+                <button class="mood-btn" data-mood="workout" aria-label="Select workout mood">
+                    <i class="fas fa-dumbbell" aria-hidden="true"></i>
+                    <span>Workout</span>
+                </button>
+                <button class="mood-btn" data-mood="sad" aria-label="Select sad mood">
+                    <i class="fas fa-cloud-rain" aria-hidden="true"></i>
+                    <span>Sad</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="results-section" id="results" aria-live="polite">
+            <h2 id="results-title">Select a mood to see playlists</h2>
+            <!-- Loader element -->
+            <div class="loader" id="loader" role="status" aria-label="Loading playlists">
+                <div class="spinner"></div>
+            </div>
+            <!-- Grid for displaying playlists -->
+            <div class="playlist-grid" id="playlist-grid">
+                <!-- Playlist cards will be injected here by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Created with <i class="fas fa-heart" style="color: #e25555;" aria-hidden="true"></i> using Spotify Web API</p>
+            <!-- Audio Player Controls Container -->
+            <div class="player-container" id="player-container" style="display: none;" aria-label="Audio Player">
+                <div class="now-playing" id="now-playing">
+                    <img id="now-playing-img" src="https://via.placeholder.com/40" alt="Album cover">
+                    <div class="track-info">
+                        <p id="now-playing-name" class="track-name">Not Playing</p>
+                        <p id="now-playing-artist" class="artist-name">Select a track to play</p>
+                    </div>
+                </div>
+                <div class="player-controls">
+                    <button id="play-pause-btn" class="control-btn" aria-label="Play preview">
+                        <i class="fas fa-play" aria-hidden="true"></i>
+                    </button>
+                    <div class="progress-container" aria-label="Playback progress">
+                        <div class="progress-bar" id="progress-bar" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Hidden audio element for playback -->
+    <div class="audio-element">
+        <audio id="audio-player" preload="none"></audio>
+    </div>
+
+    <!-- Link to JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
