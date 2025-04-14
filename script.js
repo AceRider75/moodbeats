@@ -2,8 +2,8 @@
 // Global Constants and Variables
 // Make sure these are declared ONLY ONCE at the top
 // ==============================================
-const clientId = '164e5029d0d24a7ea0c28a7066c11202';
-const clientSecret = '42b93de906374ecf893e1c3e63264c62';
+const clientId = 'get ur own';
+const clientSecret = 'get ur own';
 const moodButtons = document.querySelectorAll('.mood-btn');
 const playlistGrid = document.getElementById('playlist-grid');
 const resultsTitle = document.getElementById('results-title');
